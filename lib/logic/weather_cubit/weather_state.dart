@@ -18,4 +18,4 @@ class WeatherLoaded extends WeatherState {
   });
 }
 
-class WeatherFailToload extends WeatherState {}
+

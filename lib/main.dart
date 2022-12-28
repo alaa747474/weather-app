@@ -35,16 +35,14 @@ class MyApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeModeCubit, ThemeModeState>(
         builder: (context, state) {
-          if (state is GetThemeBool) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              theme: state.isDark != false
+              theme: context.read<ThemeModeCubit>().isDark != false
                   ? appThemeData[AppTheme.light]
                   : appThemeData[AppTheme.dark],
               onGenerateRoute: AppRouter().generateRoute,
             );
-          }
-          return const SizedBox();
+        
         },
       ),
     );

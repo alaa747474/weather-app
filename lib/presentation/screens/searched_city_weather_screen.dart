@@ -94,8 +94,6 @@ class SearchedCityWeatherScreen extends StatelessWidget {
           );
         }else if(state is WeatherLoading){
           return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
-        }else if(state is WeatherFailToload){
-          return  Center(child: Text('Somethimg went wrong',style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColorLight),),);
         }return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
       }),
     );

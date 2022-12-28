@@ -103,8 +103,6 @@ class WeatherScreen extends StatelessWidget {
           );
         }else if(state is WeatherLoading){
           return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
-        }else if(state is WeatherFailToload){
-          return const Center(child: Text('Somethimg went wrong'),);
         }return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
       }),
     );
