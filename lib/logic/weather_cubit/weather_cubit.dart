@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:weather_app/data/model/weather.dart';
+import 'package:weather_app/data/model/current.dart';
+import 'package:weather_app/data/model/forecast.dart';
+import 'package:weather_app/data/model/location.dart';
+
 import 'package:weather_app/data/repository/weather_repository.dart';
 import 'package:weather_app/data/service/current_location_service.dart';
 part 'weather_state.dart';
