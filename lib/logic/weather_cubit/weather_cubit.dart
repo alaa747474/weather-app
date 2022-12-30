@@ -33,5 +33,6 @@ class WeatherCubit extends Cubit<WeatherState> {
           location: weatherData.location,
           forecast: weatherData.forecast));
     });
+     
   }
 }

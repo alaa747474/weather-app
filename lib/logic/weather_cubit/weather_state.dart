@@ -18,4 +18,5 @@ class WeatherLoaded extends WeatherState {
   });
 }
 
+class WeatherErorr extends WeatherState {}
 

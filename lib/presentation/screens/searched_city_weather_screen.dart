@@ -8,6 +8,7 @@ import 'package:weather_app/presentation/widgets/custom_container.dart';
 import 'package:weather_app/presentation/widgets/daily_list_view.dart';
 import 'package:weather_app/presentation/widgets/forecast_container.dart';
 import 'package:weather_app/presentation/widgets/hourly_list_view.dart';
+import 'package:weather_app/presentation/widgets/no_search_fount.dart';
 
 
 class SearchedCityWeatherScreen extends StatelessWidget {
@@ -28,7 +29,9 @@ class SearchedCityWeatherScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       body: BlocBuilder<WeatherCubit,WeatherState>(builder: (context,state){
         if (state is WeatherLoaded) {
-          return ListView(
+          if (state.forecast==null) {
+            return const NoSearchFound();
+          }return ListView(
             children:[ Padding(
               padding: const EdgeInsets.all(20),
               child: SingleChildScrollView(
@@ -94,7 +97,9 @@ class SearchedCityWeatherScreen extends StatelessWidget {
           );
         }else if(state is WeatherLoading){
           return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
-        }return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
+        
+        }
+        return Center(child: LoadingAnimationWidget.fourRotatingDots(color: Theme.of(context).hintColor, size: 100),);
       }),
     );
   }

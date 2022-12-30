@@ -12,7 +12,8 @@ class WeatherService {
     dio = Dio(options);
   }
   Future<Map<String,dynamic>> getWeatherData(double lat, double long,{String? city}) async {
-    Response response = await dio.get('forecast.json', queryParameters: {
+   try {
+      Response response = await dio.get('forecast.json', queryParameters: {
       'key': apiKey,
       'q': city??'$lat,$long',
       'days': '3',
@@ -20,6 +21,9 @@ class WeatherService {
       'alerts': 'no'
     });
     return response.data;
-    
+   } catch (e) {
+      print(e);
+   }
+    return {};
   }
 }
